@@ -46,7 +46,7 @@ const Signup = () => {
               <h1>Welcome Back!</h1>
               <p>To keep connected with us please login with your personal info</p>
               <Link to='/login'>
-                <button className="btn btn-light ">SIGN IN</button>
+                <button className="btn btn-light btn-primary">SIGN IN</button>
               </Link>
             </div>
             <div className="right ">

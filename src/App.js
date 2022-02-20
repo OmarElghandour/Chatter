@@ -11,11 +11,12 @@ const ENDPOINT = "http://127.0.0.1:8080/";
 
 function App() {
 
-  useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
-    socket.emit('getMessages' , {message : 'value'});
+  // useEffect(() => {
+  //   const socket = socketIOClient(ENDPOINT);
+  //   socket.emit('getMessages' , {message : 'value'});
 
-  }, []);
+  // }, []);
+
 
   return (
     <Router>
@@ -25,10 +26,9 @@ function App() {
           <Sidebar />
           <Chat />
         </main> */}
-
             <Switch>
-              {/* <Route path="/login" component={Login} /> */}
-              {/* <Route path="/signup" component={Signup} /> */}
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
               <Route path="/video-call/:roomId" component={VideoCall} />
 
             </Switch>
