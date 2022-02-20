@@ -21,7 +21,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Login />
+        {/* <Login /> */}
         {/* <main className="layout">
           <Sidebar />
           <Chat />

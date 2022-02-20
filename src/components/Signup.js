@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 // import { Dropdown } from "react-bootstrap";
 import { Link, Redirect, useHistory } from "react-router-dom";
+import { GoogleLogin } from 'react-google-login';
+const googleClientId = '71537523690-u72ia9qi7cu036h96s3e8jpe9vm7vs1o.apps.googleusercontent.com';
+
 const axios = require('axios');
 
 const Signup = () => {
@@ -19,6 +22,10 @@ const Signup = () => {
   const setUserRole = event => {
     setState({ ...state, role: event });
   };
+
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
 
   const handleSubmit = event => {
     console.log(state);
@@ -39,10 +46,10 @@ const Signup = () => {
   };
   return (
     <div>
-      <div className="container">
+      <div className="container flex-container">
         <div className="row">
-          <div className="form col-lg-10 col-md-12 col-sm-12">
-            <div className="left col-lg-6 col-md-6 col-sm-6 ">
+          <div className="form">
+            <div className="left">
               <h1>Welcome Back!</h1>
               <p>To keep connected with us please login with your personal info</p>
               <Link to='/login'>
@@ -57,10 +64,10 @@ const Signup = () => {
                   <div className="form-group">
 
                     <label htmlFor="exampleInputEmail1" />
-                    <input type="email" className="form-control" name="userName" id="exampleInputEmail1"
+                    <input type="text" className="form-control" name="userName" id="exampleInputEmail1"
                       value={state.userName}
                       onChange={handleChange}
-                      placeholder="Enter email"
+                      placeholder="Enter username"
                     />
                   </div>
                   <div className="form-group">
@@ -83,19 +90,17 @@ const Signup = () => {
                         onChange={handleChange}
                         name="password"
                       />
-                      {/* <Dropdown >
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                          {state.role}
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                          <Dropdown.Item onClick={() => setUserRole('Teacher')}>Teacher</Dropdown.Item>
-                          <Dropdown.Item onClick={() => setUserRole('student')}>Student</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown> */}
                     </div>
                     <button type='submit' className="btn btn-light ">SIGN UP</button>
                   </small>
+                  <strong className="login__seprator">OR</strong>
+                  <GoogleLogin
+                        clientId={googleClientId}
+                        buttonText="Sing Up With Google"  
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                      />
                 </small>
               </form>
             </div>

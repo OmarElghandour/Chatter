@@ -42,9 +42,9 @@ const Login = () => {
               <div>
                 <h1>Welcome Back!</h1>
                 <p>To keep connected with us please login with your personal info</p>
-                {/* <Link to='/signup'>
-                    <button className="btn btn-light ">SIGN UP</button>
-                </Link> */}
+                <Link to='/signup'>
+                    <button className="btn btn-light btn-primary ">Sign UP</button>
+                </Link>
               </div>
               <div className="right ">
                 <form onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ const Login = () => {
                     <div className="form-group">
   
                       <label htmlFor="exampleInputEmail1" />
-                      <input type="email" className="form-control" name="userName" id="exampleInputEmail1"
+                      <input type="text" className="form-control" name="userName" id="exampleInputEmail1"
                         value={state.userName}
                         onChange={handleChange}
                         placeholder="Enter email"
